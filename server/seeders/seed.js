@@ -7,7 +7,7 @@ db.once('open', async () => {
     await Profile.deleteMany({});
     await Profile.create(profileSeeds);
 
-    console.log('users loaded!');
+    console.log('users loaded');
     process.exit(0);
   } catch (err) {
     throw err;
