@@ -18,7 +18,7 @@ const Home = () => {
     if (loading) {
       return <h2>Loading...</h2>
     } else {
-      return <UserList users={users} title="List of Users" />
+      return <UserList users={users} title="Available friends" />
     }
   }
 
@@ -39,12 +39,12 @@ const Home = () => {
   return (
     <main>
       <form onSubmit={handleSubmit}>
-        <label>Search</label>
+        <label>Find contact</label>
         <input
           type="text"
           ref={inputRef}
         />
-        <button type="submit">Search</button>
+        <button type="submit">invite</button>
       </form>
       <div>
         <UserList

@@ -1,7 +1,4 @@
-import React, {useEffect} from 'react';
-import { Widget, addResponseMessage } from 'react-chat-widget';
-
-import 'react-chat-widget/lib/styles.css';
+import React, {useState} from 'react';
 
 import {
   ApolloClient,
@@ -13,9 +10,9 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -44,25 +41,12 @@ const client = new ApolloClient({
 });
 
 function App() {
-  useEffect(() => {
-    addResponseMessage('Welcome to this awesome chat!');
-  }, []);
-  const handleNewUserMessage = (newMessage) => {
-    console.log(`New message incoming! ${newMessage}`);
-    //addResponseMessage(response);
-  };
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
-          {/* <Header />
-          <Widget 
-          handleNewUserMessage={handleNewUserMessage}
-          profileAvatar={logo}
-          title="My new awesome title"
-          subtitle="And my cool subtitle"
-          /> */}
-          <Routes>
+          <Header/>
+            <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

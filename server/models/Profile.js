@@ -21,7 +21,7 @@ const profileSchema = new Schema({
   }
 });
 
-//update password?? ask what it is
+
 profileSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
